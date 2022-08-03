@@ -1,0 +1,8 @@
+- hosts: all
+  user: pratigya
+  tasks:
+    - name: ping all hosts
+      ping:
+    - name: print a message
+      debug:
+        msg: 'All set'
