@@ -1,0 +1,20 @@
+---
+-  name:  Start/Restart/Stop Test Container
+   become: True
+   docker_container: 
+        name: "mathapp-production" 
+        image: "webappartifactory.jfrog.io/docker-local/mathapp-production:latest"
+        pull: yes
+        network_mode: host
+        restart_policy: always
+        restart:  "{{ 'restart' in ansible_run_tags }}"
+        state: "{{ ('stop' in ansible_run_tags) | ternary('stopped', 'started') }}"
+        published_ports: '8020:8020'
+   tags:
+     -  docker
+     -  start
+     -  stop
+     -  restart
+    
+    
+---

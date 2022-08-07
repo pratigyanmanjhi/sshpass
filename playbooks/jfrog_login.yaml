@@ -1,0 +1,22 @@
+- hosts: all
+  user: pratigya
+  tasks:
+
+  - name: Log into private registry and force re-authorization
+    docker_login:
+      registry: webappartifactory.jfrog.io
+      username: pratigyan1109@gmail.com
+      password: Adgjlzm#12
+      reauthorize: yes
+
+  - name: run container
+    docker_container:
+      name: mathapp-production
+      image: webappartifactory.jfrog.io/docker-local/mathapp-production:latest
+      state: started
+      restart_policy: always
+      pull: True
+      ports:
+        - "8010:8010"
+
+      

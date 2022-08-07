@@ -2,7 +2,7 @@
   user: pratigya
   become: True
   tasks:
-    - name: Install apache2 package
+    - name: Install 
       apt:
        name: apache2
        state: latest
