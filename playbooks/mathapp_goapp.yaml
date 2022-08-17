@@ -8,6 +8,8 @@
       - name: run container
         docker:
            insecure_registry: true
+           #registry_url: https://webappartifactory.jfrog.io/artifactory/docker/
+
            image: webappartifactory.jfrog.io/docker-local/mathapp-production:latest
            state: reloaded
            pull: always
@@ -15,3 +17,4 @@
               - "8020:8020"
 
   
+    
